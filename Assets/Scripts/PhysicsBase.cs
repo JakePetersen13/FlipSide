@@ -22,7 +22,7 @@ public class PhysicsBase : MonoBehaviour
         grounded = false;
 
         RaycastHit2D[] collisions = new RaycastHit2D[16];
-        int colCount = GetComponent<Rigidbody2D>().Cast(velocity, collisions, velocity.magnitude + 0.01f);
+        int colCount = GetComponent<Rigidbody2D>().Cast(velocity, collisions, velocity.magnitude + 0.001f);
 
         for (int i = 0; i < colCount; ++i)
         {
