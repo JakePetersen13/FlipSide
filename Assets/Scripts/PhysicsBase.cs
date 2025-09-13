@@ -34,10 +34,12 @@ public class PhysicsBase : MonoBehaviour
                 if (gravityDirection == 1 && collisions[i].normal.y > 0.3f)
                 {
                     grounded = true;
+                    velocity.y = 0f;
                 }
                 else if (gravityDirection == -1 && collisions[i].normal.y < -0.3f)
                 {
                     grounded = true;
+                    velocity.y = 0f;
                 }
                 return;
             }
@@ -55,7 +57,7 @@ public class PhysicsBase : MonoBehaviour
             gravity = 9.81f * gravityDirection * Vector2.down * gravityFactor;
         }
 
-        velocity += gravity * Time.fixedDeltaTime;
+            velocity += gravity * Time.fixedDeltaTime;
         velocity.x = desiredX;
 
         Vector2 movement = velocity * Time.fixedDeltaTime;
