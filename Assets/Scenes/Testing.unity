@@ -4126,14 +4126,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
-  gravityFactor: 3
+  gravityFactor: 5
   gravityDirection: 1
+  maxFallSpeed: 50
   desiredX: 0
   grounded: 0
+  moveAccelerationFactor: 10
   moveSpeed: 20
   flipBoost: 20
   direction: 0
-  updatespriteWaitTime: 0
+  updatespriteWaitTime: 0.1
   flipRotateSpeed: 15
   sprite: {fileID: 2015144743}
 --- !u!50 &1176982626
