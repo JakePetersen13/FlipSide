@@ -64,7 +64,7 @@ public class PlayerController : PhysicsBase
         {
             sr.color = lightRed;
             targetRotation = Quaternion.Euler(0, 0, 180);
-            sprite.localPosition = new Vector3(0f, 0f, 0f); //rotation axis of triangle means it must shift up to line up with collider
+            sprite.localPosition = new Vector3(0f, 0.3f, 0f); //rotation axis of triangle means it must shift up to line up with collider
         }
     }
 

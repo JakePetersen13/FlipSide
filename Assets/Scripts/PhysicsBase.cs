@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PhysicsBase : MonoBehaviour
@@ -9,6 +10,8 @@ public class PhysicsBase : MonoBehaviour
     public int gravityDirection = 1; //1 = normal (down), -1 = reversed (up)
     public float desiredX;
     public bool grounded;
+
+    public GameObject playerObject;
 
     void Start()
     {
@@ -24,6 +27,11 @@ public class PhysicsBase : MonoBehaviour
 
         for (int i = 0; i < colCount; ++i)
         {
+            Collider2D col = collisions[i].collider;
+
+            if (!CanCollideWith(col))
+                continue;
+
             if (Mathf.Abs(collisions[i].normal.x) > 0.3f && horizontal)
             {
                 return;
@@ -63,5 +71,21 @@ public class PhysicsBase : MonoBehaviour
         Vector2 movement = velocity * Time.fixedDeltaTime;
         Movement(new Vector2(movement.x, 0), true);
         Movement(new Vector2(0, movement.y), false);
+    }
+
+    bool CanCollideWith(Collider2D col)
+    {
+        string tag = col.tag;
+
+        if (tag == "WhitePlatform") return true;
+        if (gravityDirection == 1 && tag == "BluePlatform") return true;
+        if (gravityDirection == -1 && tag == "RedPlatform") return true;
+
+        if (tag == "Spikes")
+        {
+            Destroy(playerObject);
+        }
+
+        return false;
     }
 }
