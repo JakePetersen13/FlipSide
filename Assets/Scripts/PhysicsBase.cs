@@ -8,8 +8,10 @@ public class PhysicsBase : MonoBehaviour
     public Vector2 velocity;
     public float gravityFactor = 1f;
     public int gravityDirection = 1; //1 = normal (down), -1 = reversed (up)
+    public float maxFallSpeed = 30f;
     public float desiredX;
     public bool grounded;
+    public float moveAccelerationFactor = 1f;
 
     void Start()
     {
@@ -63,8 +65,9 @@ public class PhysicsBase : MonoBehaviour
             gravity = 9.81f * gravityDirection * Vector2.down * gravityFactor;
         }
 
-            velocity += gravity * Time.fixedDeltaTime;
-        velocity.x = desiredX;
+        velocity += gravity * Time.fixedDeltaTime;
+        velocity.y = Mathf.Clamp(velocity.y, -maxFallSpeed, maxFallSpeed);
+        velocity.x = Mathf.Lerp(velocity.x, desiredX, moveAccelerationFactor * Time.fixedDeltaTime);
 
         Vector2 movement = velocity * Time.fixedDeltaTime;
         Movement(new Vector2(movement.x, 0), true);
@@ -81,7 +84,7 @@ public class PhysicsBase : MonoBehaviour
 
         if (tag == "Spikes")
         {
-            Destroy(this);
+            this.gameObject.SetActive(false);
             return true;
         }
 

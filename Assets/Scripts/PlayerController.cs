@@ -19,7 +19,7 @@ public class PlayerController : PhysicsBase
     {
         sr = sprite.GetComponent<SpriteRenderer>();
         targetRotation = Quaternion.identity;
-        Updatesprite();
+        UpdateSprite();
     }
 
     void Update()
@@ -45,10 +45,10 @@ public class PlayerController : PhysicsBase
         gravityDirection *= -1; 
         velocity.y = flipBoost * -gravityDirection;
 
-        StartCoroutine(waitToUpdatesprite(updatespriteWaitTime)); //give player time to move away from colliders
+        UpdateSprite();
     }
 
-    void Updatesprite()
+    void UpdateSprite()
     {
 
         Color32 lightBlue = new Color32(0, 128, 255, 255);
@@ -71,11 +71,5 @@ public class PlayerController : PhysicsBase
     public int GetGravityDirection()
     {
         return gravityDirection;
-    }
-
-    IEnumerator waitToUpdatesprite(float waitTime)
-    {
-        yield return new WaitForSeconds(waitTime);
-        Updatesprite();
     }
 }
