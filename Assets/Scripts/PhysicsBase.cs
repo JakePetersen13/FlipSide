@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class PhysicsBase : MonoBehaviour
 {
-
     public Vector2 velocity;
-    public float gravityFactor;
+    public float gravityFactor = 1f;
+    public int gravityDirection = 1; //1 = normal (down), -1 = reversed (up)
     public float desiredX;
     public bool grounded;
 
-    // Start is called before the first frame update
     void Start()
     {
-
     }
 
     void Movement(Vector2 velocity, bool horizontal)
@@ -22,7 +20,7 @@ public class PhysicsBase : MonoBehaviour
         grounded = false;
 
         RaycastHit2D[] collisions = new RaycastHit2D[16];
-        int colCount = GetComponent<Rigidbody2D>().Cast(velocity, collisions, velocity.magnitude + 0.001f);
+        int colCount = GetComponent<Rigidbody2D>().Cast(velocity, collisions, velocity.magnitude + 0.0001f);
 
         for (int i = 0; i < colCount; ++i)
         {
@@ -32,7 +30,12 @@ public class PhysicsBase : MonoBehaviour
             }
             if (Mathf.Abs(collisions[i].normal.y) > 0.3f && !horizontal)
             {
-                if (collisions[i].normal.y > 0.3f)
+                // Check ground depending on gravity direction
+                if (gravityDirection == 1 && collisions[i].normal.y > 0.3f)
+                {
+                    grounded = true;
+                }
+                else if (gravityDirection == -1 && collisions[i].normal.y < -0.3f)
                 {
                     grounded = true;
                 }
@@ -43,11 +46,14 @@ public class PhysicsBase : MonoBehaviour
         transform.position += (Vector3)velocity;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         Vector2 gravity = Vector2.zero;
-        if (!grounded) gravity = 9.81f * Vector2.down * gravityFactor;
+
+        if (!grounded)
+        {
+            gravity = 9.81f * gravityDirection * Vector2.down * gravityFactor;
+        }
 
         velocity += gravity * Time.fixedDeltaTime;
         velocity.x = desiredX;
