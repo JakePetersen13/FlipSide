@@ -11,8 +11,6 @@ public class PhysicsBase : MonoBehaviour
     public float desiredX;
     public bool grounded;
 
-    public GameObject playerObject;
-
     void Start()
     {
     }
@@ -83,7 +81,8 @@ public class PhysicsBase : MonoBehaviour
 
         if (tag == "Spikes")
         {
-            Destroy(playerObject);
+            Destroy(this);
+            return true;
         }
 
         return false;
