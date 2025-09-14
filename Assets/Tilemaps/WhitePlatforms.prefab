@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 6710849931818864091}
   - component: {fileID: 1690084197828086852}
   m_Layer: 0
-  m_Name: Testing
+  m_Name: WhitePlatforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

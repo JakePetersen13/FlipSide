@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: testPlatform
+  m_Name: spikeUpsidedown
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 120f0cc7c3b2adf44b7a5fde80f7a846, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e0401c126dd51af419134c89e4a52f67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
