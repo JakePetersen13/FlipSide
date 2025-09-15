@@ -15,6 +15,7 @@ public class Collectible : MonoBehaviour
             GameObject particles = Instantiate(coinParticlesPrefab, transform.position, Quaternion.identity);
 
             Destroy(gameObject);
+            Destroy(particles.gameObject, 1f);
         }
     }
 }
