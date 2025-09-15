@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public int score = 0;
+    public int targetScore = 3;
     public TextMeshProUGUI scoreText;
 
     void Awake()
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
     {
         score += amount;
         if (scoreText != null)
-            scoreText.text = "Score: " + score;
+            scoreText.text = "collected: " + score + "/" + targetScore;
+        
     }
 }
