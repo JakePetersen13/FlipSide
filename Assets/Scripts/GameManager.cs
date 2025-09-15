@@ -1,5 +1,5 @@
 using UnityEngine;
-using TMPro;  // <-- important
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {

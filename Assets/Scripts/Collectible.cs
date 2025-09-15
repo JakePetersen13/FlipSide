@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour
 {
-    public int scoreValue = 100;
+    public int scoreValue = 10;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -12,7 +12,6 @@ public class Collectible : MonoBehaviour
         {
             GameManager.Instance.AddScore(scoreValue);
 
-            // you could add a sound/particle effect here
             Destroy(gameObject);
         }
     }
