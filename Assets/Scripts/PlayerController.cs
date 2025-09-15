@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : PhysicsBase
 {
@@ -84,6 +85,7 @@ public class PlayerController : PhysicsBase
             main.startColor = sr.color;
 
             Destroy(gameObject);
+            FindObjectOfType<LevelTransition>().LoadNextLevel(SceneManager.GetActiveScene().name);
         }
     }
 

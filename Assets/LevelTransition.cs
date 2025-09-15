@@ -21,14 +21,14 @@ public class LevelTransition : MonoBehaviour
 
     IEnumerator FadeIn()
     {
-        float t = fadeDuration;
-        Color c = transitionOverlay.color;
+        float time = fadeDuration;
+        Color color = transitionOverlay.color;
 
-        while (t > 0)
+        while (time > 0) 
         {
-            t -= Time.deltaTime;
-            c.a = Mathf.Clamp01(t / fadeDuration);
-            transitionOverlay.color = c;
+            time -= Time.deltaTime;
+            color.a = Mathf.Clamp01(time / fadeDuration);
+            transitionOverlay.color = color;
             yield return null;
         }
     }
@@ -36,14 +36,14 @@ public class LevelTransition : MonoBehaviour
     IEnumerator FadeOutAndLoad(string nextSceneName)
     {
         FindObjectOfType<PlayerController>().enabled = false;
-        float t = 0f;
-        Color c = transitionOverlay.color;
+        float time = 0f;
+        Color color = transitionOverlay.color;
 
-        while (t < fadeDuration)
+        while (time < fadeDuration)
         {
-            t += Time.deltaTime;
-            c.a = Mathf.Clamp01(t / fadeDuration);
-            transitionOverlay.color = c;
+            time += Time.deltaTime;
+            color.a = Mathf.Clamp01(time / fadeDuration);
+            transitionOverlay.color = color;
             yield return null;
         }
 

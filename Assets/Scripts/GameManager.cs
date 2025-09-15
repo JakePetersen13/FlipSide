@@ -34,6 +34,12 @@ public class GameManager : MonoBehaviour
                 case "Level2":
                     FindObjectOfType<LevelTransition>().LoadNextLevel("Level3");
                     break;
+                case "Level3":
+                    FindObjectOfType<LevelTransition>().LoadNextLevel("Level4");
+                    break;
+                case "Level4":
+                    FindObjectOfType<LevelTransition>().LoadNextLevel("Home");
+                    break;
             }
         }
     }
