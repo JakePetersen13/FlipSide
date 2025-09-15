@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,16 @@ public class GameManager : MonoBehaviour
     public int score = 0;
     public int targetScore = 3;
     public TextMeshProUGUI scoreText;
+
+    public PhysicsBase PhysicsBase;
+    public GameObject RedPlatforms;
+    public GameObject BluePlatforms;
+
+    Color32 lightBlueOpaque = new Color32(0, 128, 255, 255);
+    Color32 lightRedOpaque = new Color32(255, 51, 51, 255);
+
+    Color32 lightBlueTransparent = new Color32(0, 128, 255, 20);
+    Color32 lightRedTransparent = new Color32(255, 51, 51, 20);
 
     void Awake()
     {
@@ -41,6 +52,20 @@ public class GameManager : MonoBehaviour
                     FindObjectOfType<LevelTransition>().LoadNextLevel("Home");
                     break;
             }
+        }
+    }
+
+    void Update()
+    {
+        if (PhysicsBase.gravityDirection == 1)
+        {
+            BluePlatforms.GetComponent<Tilemap>().color = lightBlueOpaque;
+            RedPlatforms.GetComponent<Tilemap>().color = lightRedTransparent;
+        }
+        if (PhysicsBase.gravityDirection == -1)
+        {
+            BluePlatforms.GetComponent<Tilemap>().color = lightBlueTransparent;
+            RedPlatforms.GetComponent<Tilemap>().color = lightRedOpaque;
         }
     }
 }
