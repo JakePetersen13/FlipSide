@@ -427,7 +427,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1080529844762327057, guid: 300a6e2122df77347923fc5d051e95f3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.547
+      value: -18.71
       objectReference: {fileID: 0}
     - target: {fileID: 1080529844762327057, guid: 300a6e2122df77347923fc5d051e95f3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -465,6 +465,10 @@ PrefabInstance:
       propertyPath: deathParticlesPrefab
       value: 
       objectReference: {fileID: 57595761478430536, guid: f04e7662ccbb81643836c71820005763, type: 3}
+    - target: {fileID: 3083944168167848982, guid: 300a6e2122df77347923fc5d051e95f3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4597343851656181449, guid: 300a6e2122df77347923fc5d051e95f3, type: 3}
       propertyPath: m_Name
       value: Player
