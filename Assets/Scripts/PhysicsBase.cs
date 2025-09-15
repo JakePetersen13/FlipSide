@@ -78,21 +78,10 @@ public class PhysicsBase : MonoBehaviour
     {
         string tag = col.tag;
 
-        if (tag == "WhitePlatform") return true;
-        if (gravityDirection == 1 && tag == "BluePlatform")
-        {
-            return true;
-        }
-        if (gravityDirection == -1 && tag == "RedPlatform")
-        {
-            return true;
-        }
-
-        if (tag == "Spikes")
-        {
-            this.gameObject.SetActive(false);
-            return true;
-        }
+        if (tag == "WhitePlatform" || tag == "Spikes") return true;
+        if (gravityDirection == 1 && tag == "BluePlatform") return true;
+        if (gravityDirection == -1 && tag == "RedPlatform") return true;
+        if (tag == "Spikes") return true;
 
         return false;
     }

@@ -14,6 +14,7 @@ public class PlayerController : PhysicsBase
 
     public Transform sprite;
     private SpriteRenderer sr;
+    public GameObject deathParticlesPrefab;
 
     void Start()
     {
@@ -71,5 +72,18 @@ public class PlayerController : PhysicsBase
     public int GetGravityDirection()
     {
         return gravityDirection;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Spikes"))
+        {;
+            GameObject particles = Instantiate(deathParticlesPrefab, transform.position, Quaternion.identity);
+
+            var main = particles.GetComponent<ParticleSystem>().main;
+            main.startColor = sr.color;
+
+            Destroy(gameObject);
+        }
     }
 }
