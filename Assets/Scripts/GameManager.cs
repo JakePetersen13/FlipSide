@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,6 +23,18 @@ public class GameManager : MonoBehaviour
         score += amount;
         if (scoreText != null)
             scoreText.text = "collected: " + score + "/" + targetScore;
-        
+
+        if (score == targetScore)
+        {
+            switch (SceneManager.GetActiveScene().name)
+            {
+                case "Level1":
+                    FindObjectOfType<LevelTransition>().LoadNextLevel("Level2");
+                    break;
+                case "Level2":
+                    FindObjectOfType<LevelTransition>().LoadNextLevel("Level3");
+                    break;
+            }
+        }
     }
 }

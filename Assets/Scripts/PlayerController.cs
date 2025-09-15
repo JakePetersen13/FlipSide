@@ -86,4 +86,10 @@ public class PlayerController : PhysicsBase
             Destroy(gameObject);
         }
     }
+
+    public void DisablePlayer()
+    {
+        GetComponent<PlayerController>().enabled = false;
+    }
+
 }
