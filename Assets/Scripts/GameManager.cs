@@ -46,10 +46,7 @@ public class GameManager : MonoBehaviour
                     FindObjectOfType<LevelTransition>().LoadNextLevel("Level3");
                     break;
                 case "Level3":
-                    FindObjectOfType<LevelTransition>().LoadNextLevel("Level4");
-                    break;
-                case "Level4":
-                    FindObjectOfType<LevelTransition>().LoadNextLevel("Home");
+                    FindObjectOfType<LevelTransition>().LoadNextLevel("Win");
                     break;
             }
         }
@@ -66,6 +63,11 @@ public class GameManager : MonoBehaviour
         {
             BluePlatforms.GetComponent<Tilemap>().color = lightBlueTransparent;
             RedPlatforms.GetComponent<Tilemap>().color = lightRedOpaque;
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            FindObjectOfType<LevelTransition>().LoadNextLevel(SceneManager.GetActiveScene().name);
         }
     }
 }

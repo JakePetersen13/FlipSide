@@ -35,7 +35,12 @@ public class LevelTransition : MonoBehaviour
 
     IEnumerator FadeOutAndLoad(string nextSceneName)
     {
-        FindObjectOfType<PlayerController>().enabled = false;
+        try
+        {
+            FindObjectOfType<PlayerController>().enabled = false;
+        }
+        catch { }
+
         float time = 0f;
         Color color = transitionOverlay.color;
 
@@ -49,4 +54,7 @@ public class LevelTransition : MonoBehaviour
 
         SceneManager.LoadScene(nextSceneName);
     }
+
+
+
 }
