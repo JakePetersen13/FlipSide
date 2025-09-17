@@ -17,11 +17,11 @@ public class GameManager : MonoBehaviour
     public GameObject RedPlatforms;
     public GameObject BluePlatforms;
 
-    Color32 lightBlueOpaque = new Color32(0, 128, 255, 255);
-    Color32 lightRedOpaque = new Color32(255, 51, 51, 255);
+    Color32 lightBlueOpaque = new Color32(0, 62, 255, 255);
+    Color32 lightRedOpaque = new Color32(255, 0, 4, 255);
 
-    Color32 lightBlueTransparent = new Color32(0, 128, 255, 20);
-    Color32 lightRedTransparent = new Color32(255, 51, 51, 20);
+    Color32 lightBlueTransparent = new Color32(0, 62, 255, 20);
+    Color32 lightRedTransparent = new Color32(255, 0, 4, 20);
 
     void Awake()
     {

@@ -53,8 +53,8 @@ public class PlayerController : PhysicsBase
     void UpdateSprite()
     {
 
-        Color32 lightBlue = new Color32(0, 128, 255, 255);
-        Color32 lightRed = new Color32(255, 51, 51, 255);
+        Color32 lightBlue = new Color32(0, 28, 255, 255);
+        Color32 lightRed = new Color32(255, 0, 4, 255);
 
         if (gravityDirection == 1)
         {
