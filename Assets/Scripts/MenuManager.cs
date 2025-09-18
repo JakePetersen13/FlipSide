@@ -21,19 +21,15 @@ public class MenuManager : MonoBehaviour
         FindObjectOfType<LevelTransition>().LoadNextLevel(sceneName);
     }
 
-    // 🔹 UI Button Hooks
 
     public void StartGame()
     {
-        // Load the first actual level of your game
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.menuSelect);
         FindObjectOfType<LevelTransition>().LoadNextLevel("Level1");
     }
 
     public void QuitGame()
     {
         Application.Quit();
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false; // works inside editor
-#endif
     }
 }

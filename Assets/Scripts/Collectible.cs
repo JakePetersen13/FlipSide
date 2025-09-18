@@ -14,6 +14,7 @@ public class Collectible : MonoBehaviour
             GameManager.Instance.AddScore(scoreValue);
             GameObject particles = Instantiate(coinParticlesPrefab, transform.position, Quaternion.identity);
 
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.coinCollect);
             Destroy(gameObject);
             Destroy(particles.gameObject, 1f);
         }

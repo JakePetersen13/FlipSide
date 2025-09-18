@@ -33,6 +33,7 @@ public class PlayerController : PhysicsBase
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
             FlipGravity();
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.gravityFlip);
         }
         else if (grounded)
         {
@@ -80,6 +81,8 @@ public class PlayerController : PhysicsBase
         if (collision.CompareTag("Spikes"))
         {;
             GameObject particles = Instantiate(deathParticlesPrefab, transform.position, Quaternion.identity);
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.death);
+
 
             var main = particles.GetComponent<ParticleSystem>().main;
             main.startColor = sr.color;
