@@ -10,7 +10,6 @@ public class LevelTransition : MonoBehaviour
 
     private void Start()
     {
-        // Fade in from black at level start
         StartCoroutine(FadeIn());
     }
 
