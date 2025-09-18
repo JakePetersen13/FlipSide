@@ -8,7 +8,6 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
-        // If we're on the Win screen, auto-return to Home after a delay
         if (SceneManager.GetActiveScene().name.Equals("Win"))
         {
             StartCoroutine(WaitAndLoad(5f, "Home"));
